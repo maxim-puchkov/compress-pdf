@@ -14,9 +14,14 @@
 			<key>ImageSettings</key>
 			<dict>
 				<key>Compression Quality</key>
-				<real>-0.90</real>
+				<real>-0.70</real>
 				<key>ImageCompression</key>
 				<string>ImageJPEGCompress</string>
+				<key>ImageScaleSettings</key>
+				<dict>
+					<key>ImageScaleFactor</key>
+					<real>0.90</real>
+				</dict>
 			</dict>
 		</dict>
 	</dict>
