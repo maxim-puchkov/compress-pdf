@@ -18,9 +18,9 @@ public class PDFCompressor {
   /// Name of the default filter (currently the only filter)
   public static let kDefaultQuartzFilter: String = "Compress-PDF"
   
-  
   /// Quartz filter that is applied to PDF documents.
   private let qfilter: QuartzFilter
+  
   
   
   //MARK: - Init
@@ -36,8 +36,7 @@ public class PDFCompressor {
                                     withExtension: "qfilter",
                                     subdirectory:  "Filters")
     else {
-      //FIXME: ahey
-      /// - : a
+      //FIXME: print to stderr
       print("Quartz Filter named \"" + name + "\" could not be found.")
       exit(1)
     }
@@ -46,7 +45,6 @@ public class PDFCompressor {
   // MARK: Init -
   
   
-
   
   /// Copy the PDF document from `input` location and apply the quartz filter to the copied data.
   /// The resulting PDF file is written to the `output` location.

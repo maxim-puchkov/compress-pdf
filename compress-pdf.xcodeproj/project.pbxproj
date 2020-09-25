@@ -8,23 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		849F0991251D9F1200F4D896 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F0990251D9F1200F4D896 /* main.swift */; };
+		849F0999251D9F3E00F4D896 /* PDFCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F0998251D9F3E00F4D896 /* PDFCompressor.swift */; };
+		849F09A1251DCB8C00F4D896 /* Compress-PDF.qfilter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 849F099E251DCA5300F4D896 /* Compress-PDF.qfilter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		849F098B251D9F1200F4D896 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = Filters;
+			dstSubfolderSpec = 7;
 			files = (
+				849F09A1251DCB8C00F4D896 /* Compress-PDF.qfilter in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		849F098D251D9F1200F4D896 /* compress-pdf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "compress-pdf"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849F0990251D9F1200F4D896 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		849F0998251D9F3E00F4D896 /* PDFCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCompressor.swift; sourceTree = "<group>"; };
+		849F099E251DCA5300F4D896 /* Compress-PDF.qfilter */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compress-PDF.qfilter"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +62,35 @@
 		849F098F251D9F1200F4D896 /* compress-pdf */ = {
 			isa = PBXGroup;
 			children = (
+				849F099F251DCB6C00F4D896 /* src */,
+				849F099D251DC9F900F4D896 /* Resources */,
 				849F0990251D9F1200F4D896 /* main.swift */,
 			);
 			path = "compress-pdf";
+			sourceTree = "<group>";
+		};
+		849F099C251DC87A00F4D896 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				849F099E251DCA5300F4D896 /* Compress-PDF.qfilter */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		849F099D251DC9F900F4D896 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				849F099C251DC87A00F4D896 /* Filters */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		849F099F251DCB6C00F4D896 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				849F0998251D9F3E00F4D896 /* PDFCompressor.swift */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +121,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = com.maximpuchkov;
 				TargetAttributes = {
 					849F098C251D9F1200F4D896 = {
 						CreatedOnToolsVersion = 12.0;
@@ -120,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				849F0991251D9F1200F4D896 /* main.swift in Sources */,
+				849F0999251D9F3E00F4D896 /* PDFCompressor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
