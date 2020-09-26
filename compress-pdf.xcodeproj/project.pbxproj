@@ -13,6 +13,7 @@
 		84993CAD251EB7E1003411BD /* PDFCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F0998251D9F3E00F4D896 /* PDFCompressor.swift */; };
 		84993CB4251EB7E4003411BD /* QuartzFilter+ResourceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F09A8251DDC5300F4D896 /* QuartzFilter+ResourceName.swift */; };
 		84993CE1251EB9D5003411BD /* Compress PDF.qfilter in Resources */ = {isa = PBXBuildFile; fileRef = 849F099E251DCA5300F4D896 /* Compress PDF.qfilter */; };
+		84993D05251EDAAA003411BD /* Compress PDF.qfilter in Resources */ = {isa = PBXBuildFile; fileRef = 849F099E251DCA5300F4D896 /* Compress PDF.qfilter */; };
 		849F0991251D9F1200F4D896 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F0990251D9F1200F4D896 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84993D05251EDAAA003411BD /* Compress PDF.qfilter in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

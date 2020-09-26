@@ -9,12 +9,8 @@
 import Quartz
 
 public enum PDFCompressionError : Error {
-  case QuartzFilterNotFound(String);
-}
-
-
-class PDFFilter {
-  
+  case NoSuchQuartzFilter(filterName: String);
+  case NoSuchFile(fileURL: URL)
 }
 
 
@@ -25,63 +21,55 @@ class PDFFilter {
 public class PDFCompressor {
   
   /// Name of the default filter (currently the only filter)
-  public static let kDefaultFilter: String = "Compress PDF"
+  public static let kDefaultFilterName: String = "Compress PDF"
   
-  public static func getFilter(filter name: String) -> QuartzFilter {
+  public static func getFilterURL(filter name: String) -> URL? {
     let ext = "qfilter"
-    let dir = "PDFCompressor.framework/Resources"
-    guard let filterURL = Bundle.main.url(forResource: name,
-                                          withExtension: ext,
-                                          subdirectory: dir) else {
-      exit(1)
-    }
-    return QuartzFilter(url: filterURL)
+    let dir = "Resources"
+    let bundle = Bundle(for: self)
+    return bundle.url(forResource: name,
+                      withExtension: ext,
+                      subdirectory: dir)
   }
   
   
   
   /// Quartz filter that is applied to PDF documents.
   private let quartz_filter: QuartzFilter
-  
+  /// Name of the PDF compression filter.
   public var filter: String {
     get {
       return quartz_filter.localizedName()
-//      return self.quartz_filter.url()!.absoluteString
     }
   }
   
-  public init() {
-    self.quartz_filter = Self.getFilter(filter: Self.kDefaultFilter)
-  }
-  
-  
+
   /// Create a PDFCompressor with the specified quartz filter.
   /// If filter name is not provided, the default filter will be used
   ///
   /// - Parameter name: (Optional) The name of the Quartz Filter to be used for compression.
-  public init(filter name: String = kDefaultFilter) throws {
-    self.quartz_filter = Self.getFilter(filter: name)
-//    do {
-//      self.quartz_filter = try QuartzFilter(resource: name)
-//    }
+  public init!(filter name: String = kDefaultFilterName) throws {
+    guard let filterURL = Self.getFilterURL(filter: name) else {
+      throw PDFCompressionError.NoSuchQuartzFilter(filterName: name)
+    }
+    self.quartz_filter = QuartzFilter(url: filterURL)
   }
   
   
   
   //
-  public func compress(_ inPath: String, out outPath: String) -> CFURL {
+  public func compress(_ inPath: String, out outPath: String) throws -> CFURL {
     let inURL = URL(fileURLWithPath: inPath)
     let outURL = URL(fileURLWithPath: outPath)
-    return self.compress(inURL, out: outURL)
+    return try self.compress(inURL, out: outURL)
   }
   
   
   //
-  public func compress(_ inURL: URL, out outURL: URL) -> CFURL {
+  public func compress(_ inURL: URL, out outURL: URL) throws -> CFURL {
     // Make sure input PDF file at 'inURL' is valid
     guard let inFile = PDFDocument(url: inURL) else {
-      print("Invalid input URL: \(inURL.description).")
-      exit(1)
+      throw PDFCompressionError.NoSuchFile(fileURL: inURL)
     }
     
     // Get original input PDF document at 'inURL'
@@ -104,42 +92,10 @@ public class PDFCompressor {
       outPDF.drawPDFPage(page)
       outPDF.endPage()
     }
+    
     // Close output document and return its location
     outPDF.closePDF()
     return (outURL as CFURL)
   }
   
 }
-
-
-  
-  /*
-  /// Copy the PDF document from `input` location and apply the quartz filter to the copied data.
-  /// The resulting PDF file is written to the `output` location.
-  public func compress(_ inURL: URL, out outURL: URL) {
-    let inFile = PDFDocument(url: inURL)!
-    
-    var box = inFile.documentRef!.page(at: 1)!.getBoxRect(.mediaBox)
-    
-
-    
-    let outFile = CGContext(outURL as CFURL,
-                            mediaBox: &box, nil)!
-//                            aux as CFDictionary)!
-    for index in 1...inFile.pageCount {
-      let inPage = inFile.documentRef!.page(at: index)!
-      self.qfilter.apply(to: outFile)
-      outFile.beginPDFPage(nil)
-      outFile.drawPDFPage(inPage)
-      outFile.endPDFPage()
-    }
-//    outFile.closePDF()
-    
-    
-//    let document
-//    let media =
-//    let outputFile = CGContext(outURL as CFURL, mediaBox: media, nil)
-//    print(inputFile)
-    //qfilter.apply(to: )
-  }
-  */

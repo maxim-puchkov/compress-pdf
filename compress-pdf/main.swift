@@ -7,18 +7,25 @@
 //
 
 import Foundation
-//import Quartz
-
 import PDFCompressor
 
-let inFilePath  = "/Users/admin/01-test.pdf"
-let outFilePath = "/Users/admin/out-01.pdf"
 
-let c = try PDFCompressor(filter: "Compress PDF")
-let c2 = try PDFCompressor(filter: PDFCompressor.kDefaultFilter)
-//let f = PDFCompressor.getFilter(filter: PDFCompressor.kDefaultFilter)
-print(c2)
-print(c.filter, c2.filter)
+// Path to input and output files
+let inFilePath  = "/Users/admin/01-test.pdf" // 9.5 MB
+let outFilePath = "/Users/admin/out-01.pdf" // 321 KB
+
+
+// Try to compress the input file
+do {
+  let compressor = try PDFCompressor()!
+  try compressor.compress(inFilePath, out: outFilePath)
+} catch {
+  print("Error: \(error).")
+}
+
+
+
+
 
 //do {
 //  let compressor = try PDFCompressor.init(filter: "Compress-PDF")
@@ -31,48 +38,3 @@ print(c.filter, c2.filter)
 //print("Hello, World!")
 
 
-
-/*
-// Test
-let testPath = "/Users/admin/test-output.pdf"
-let testURL = URL(fileURLWithPath: testPath)
-
-
-let testPdf = PDFDocument(url: URL(fileURLWithPath: inFilePath))!
-let page1 = testPdf.documentRef!.page(at: 1)!
-let page2 = testPdf.documentRef!.page(at: 2)!
-var box1 = page1.getBoxRect(.mediaBox)
-var box2 = page2.getBoxRect(.mediaBox)
-
-
-//var box1 = CGRect(x: 0, y: 0, width: 1855, height: 2497)
-//var box2 = CGRect(x: 0, y: 0, width: 612, height: 792)
-
-
-let c = CGContext(testURL as CFURL, mediaBox: nil, nil)!
-
-
-c.beginPage(mediaBox: &box1)
-c.drawPDFPage(page1)
-c.endPage()
-
-
-c.beginPage(mediaBox: &box2)
-c.drawPDFPage(page2)
-c.endPage()
-c.closePDF()
-
-let aux = [ kCGPDFContextMediaBox: box1 ] as CFDictionary
-//c.beginPDFPage(aux)
-
-//c.drawPDFPage()
-//c.endPDFPage()
-
-
-//let aux2 = [ kCGPDFContextMediaBox: box2 ] as CFDictionary
-
-//c.beginPDFPage(aux2)
-//c.drawPDFPage()
-//c.endPDFPage()
-//c.closePDF()
-*/
