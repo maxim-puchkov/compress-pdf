@@ -11,7 +11,6 @@
 		84993C9C251EB6C4003411BD /* PDFCompressorCompressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993C9B251EB6C3003411BD /* PDFCompressorCompressionTests.swift */; };
 		84993C9E251EB6C4003411BD /* PDFCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 84993C90251EB6C3003411BD /* PDFCompressor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84993CAD251EB7E1003411BD /* PDFCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F0998251D9F3E00F4D896 /* PDFCompressor.swift */; };
-		84993CB4251EB7E4003411BD /* QuartzFilter+ResourceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F09A8251DDC5300F4D896 /* QuartzFilter+ResourceName.swift */; };
 		84993CE1251EB9D5003411BD /* Compress PDF.qfilter in Resources */ = {isa = PBXBuildFile; fileRef = 849F099E251DCA5300F4D896 /* Compress PDF.qfilter */; };
 		84993D05251EDAAA003411BD /* Compress PDF.qfilter in Resources */ = {isa = PBXBuildFile; fileRef = 849F099E251DCA5300F4D896 /* Compress PDF.qfilter */; };
 		849F0991251D9F1200F4D896 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F0990251D9F1200F4D896 /* main.swift */; };
@@ -20,6 +19,7 @@
 		84D4CF07251F1CA20092A7E4 /* 02-document.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84D4CF04251F1CA20092A7E4 /* 02-document.pdf */; };
 		84D4CF08251F1CA20092A7E4 /* 01-document.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84D4CF05251F1CA20092A7E4 /* 01-document.pdf */; };
 		84D4CF10251F1FDF0092A7E4 /* PDFCompressionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4CF0F251F1FDF0092A7E4 /* PDFCompressionError.swift */; };
+		84E4AE40251FD91C00A572A8 /* PDFCompressor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84993C8E251EB6C3003411BD /* PDFCompressor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		84E4AE41251FD91D00A572A8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84E4AE40251FD91C00A572A8 /* PDFCompressor.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8402F4F0251FD7400056BE53 /* compress-pdf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "compress-pdf.entitlements"; sourceTree = "<group>"; };
 		84993C8E251EB6C3003411BD /* PDFCompressor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PDFCompressor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84993C90251EB6C3003411BD /* PDFCompressor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFCompressor.h; sourceTree = "<group>"; };
 		84993C91251EB6C3003411BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,7 +65,6 @@
 		849F0990251D9F1200F4D896 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		849F0998251D9F3E00F4D896 /* PDFCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCompressor.swift; sourceTree = "<group>"; };
 		849F099E251DCA5300F4D896 /* Compress PDF.qfilter */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = text.xml; path = "Compress PDF.qfilter"; sourceTree = "<group>"; };
-		849F09A8251DDC5300F4D896 /* QuartzFilter+ResourceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuartzFilter+ResourceName.swift"; sourceTree = "<group>"; };
 		84D4CEF6251F12740092A7E4 /* PDFCompressorTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PDFCompressorTestPlan.xctestplan; sourceTree = "<group>"; };
 		84D4CEFA251F150A0092A7E4 /* PDFCompressorFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCompressorFilterTests.swift; sourceTree = "<group>"; };
 		84D4CF03251F1CA10092A7E4 /* 03-document.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "03-document.pdf"; sourceTree = "<group>"; };
@@ -85,6 +99,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8402F4E2251FD6890056BE53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84993C8F251EB6C3003411BD /* PDFCompressor */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +113,6 @@
 				84993C90251EB6C3003411BD /* PDFCompressor.h */,
 				849F0998251D9F3E00F4D896 /* PDFCompressor.swift */,
 				84D4CF0F251F1FDF0092A7E4 /* PDFCompressionError.swift */,
-				849F09A8251DDC5300F4D896 /* QuartzFilter+ResourceName.swift */,
 				84993C91251EB6C3003411BD /* Info.plist */,
 			);
 			path = PDFCompressor;
@@ -117,6 +137,7 @@
 				84993C8F251EB6C3003411BD /* PDFCompressor */,
 				84993C9A251EB6C3003411BD /* PDFCompressorTests */,
 				849F098E251D9F1200F4D896 /* Products */,
+				8402F4E2251FD6890056BE53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +154,7 @@
 		849F098F251D9F1200F4D896 /* compress-pdf */ = {
 			isa = PBXGroup;
 			children = (
+				8402F4F0251FD7400056BE53 /* compress-pdf.entitlements */,
 				849F0990251D9F1200F4D896 /* main.swift */,
 			);
 			path = "compress-pdf";
@@ -167,6 +189,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8402F4F7251FD8E40056BE53 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84993C89251EB6C3003411BD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,8 +247,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849F0994251D9F1200F4D896 /* Build configuration list for PBXNativeTarget "compress-pdf" */;
 			buildPhases = (
+				8402F4F7251FD8E40056BE53 /* Headers */,
 				849F0989251D9F1200F4D896 /* Sources */,
 				849F098A251D9F1200F4D896 /* Frameworks */,
+				84E4AE41251FD91D00A572A8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,7 +332,6 @@
 			files = (
 				84D4CF10251F1FDF0092A7E4 /* PDFCompressionError.swift in Sources */,
 				84993CAD251EB7E1003411BD /* PDFCompressor.swift in Sources */,
-				84993CB4251EB7E4003411BD /* QuartzFilter+ResourceName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +371,7 @@
 		84993CA0251EB6C4003411BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -358,7 +389,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximpuchkov.PDFCompressor;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -368,6 +399,7 @@
 		84993CA1251EB6C4003411BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -385,7 +417,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximpuchkov.PDFCompressor;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -548,9 +580,12 @@
 		849F0995251D9F1200F4D896 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "compress-pdf/compress-pdf.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U55Q33J358;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximpuchkov.compress-pdf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -559,9 +594,12 @@
 		849F0996251D9F1200F4D896 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "compress-pdf/compress-pdf.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U55Q33J358;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximpuchkov.compress-pdf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
