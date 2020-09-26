@@ -21,6 +21,7 @@ do {
   try compressor.compress(inFilePath, out: outFilePath)
 } catch {
   print("Error: \(error).")
+  exit(1)
 }
 
 
@@ -38,3 +39,4 @@ do {
 //print("Hello, World!")
 
 
+exit(0)

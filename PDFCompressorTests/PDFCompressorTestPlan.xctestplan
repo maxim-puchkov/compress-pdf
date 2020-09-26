@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "210FB4A7-F7A3-4023-92FC-4784D4EFAFC7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "$SRCROOT"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:compress-pdf.xcodeproj",
+      "identifier" : "84993C95251EB6C3003411BD",
+      "name" : "PDFCompressorTests"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:compress-pdf.xcodeproj",
+        "identifier" : "84993C95251EB6C3003411BD",
+        "name" : "PDFCompressorTests"
+      }
+    }
+  ],
+  "version" : 1
+}

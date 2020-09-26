@@ -6,8 +6,10 @@
 	<dict>
 		<key>PDFCompressor.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>compress-pdf.xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,6 +19,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>84993C8D251EB6C3003411BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84993C95251EB6C3003411BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>849F098C251D9F1200F4D896</key>
 		<dict>
 			<key>primary</key>
