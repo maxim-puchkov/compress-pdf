@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double PDFCompressorVersionNumber;
 //! Project version string for PDFCompressor.
 FOUNDATION_EXPORT const unsigned char PDFCompressorVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <PDFCompressor/PublicHeader.h>
+
 #import <PDFCompressor/PDFCompressor.h>
 #import <Quartz/Quartz.h>

@@ -37,7 +37,7 @@ class PDFCompressorFilterTests: XCTestCase {
       let invalidName = "not-a-valid-filter-name"
       do {
           let _ = try PDFCompressor(name: invalidName)
-      } catch PDFCompressionError.NoSuchQuartzFilter(let filterName) {
+      } catch PDFCompressionError.QuartzFilterNotFoundError(let filterName) {
           XCTAssertEqual(filterName, invalidName)
           return
       }
