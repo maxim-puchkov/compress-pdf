@@ -8,6 +8,15 @@
 
 import Quartz
 
+public enum PDFCompressionError : Error {
+  case QuartzFilterNotFound(String);
+}
+
+
+class PDFFilter {
+  
+}
+
 
 /**
  PDFCompressor reduces size of Portable Document Format (PDF) files by
@@ -16,19 +25,45 @@ import Quartz
 public class PDFCompressor {
   
   /// Name of the default filter (currently the only filter)
-  public static let kDefaultQuartzFilter: String = "Compress-PDF"
+  public static let kDefaultFilter: String = "Compress PDF"
+  
+  public static func getFilter(filter name: String) -> QuartzFilter {
+    let ext = "qfilter"
+    let dir = "PDFCompressor.framework/Resources"
+    guard let filterURL = Bundle.main.url(forResource: name,
+                                          withExtension: ext,
+                                          subdirectory: dir) else {
+      exit(1)
+    }
+    return QuartzFilter(url: filterURL)
+  }
+  
+  
   
   /// Quartz filter that is applied to PDF documents.
-  private let qfilter: QuartzFilter
+  private let quartz_filter: QuartzFilter
   
+  public var filter: String {
+    get {
+      return quartz_filter.localizedName()
+//      return self.quartz_filter.url()!.absoluteString
+    }
+  }
+  
+  public init() {
+    self.quartz_filter = Self.getFilter(filter: Self.kDefaultFilter)
+  }
   
   
   /// Create a PDFCompressor with the specified quartz filter.
   /// If filter name is not provided, the default filter will be used
   ///
   /// - Parameter name: (Optional) The name of the Quartz Filter to be used for compression.
-  public init(filter name: String = kDefaultQuartzFilter) {
-    self.qfilter = QuartzFilter(resource: name)
+  public init(filter name: String = kDefaultFilter) throws {
+    self.quartz_filter = Self.getFilter(filter: name)
+//    do {
+//      self.quartz_filter = try QuartzFilter(resource: name)
+//    }
   }
   
   
@@ -56,7 +91,7 @@ public class PDFCompressor {
     
     // Apply the compression filter to output document. The filter will
     // process all data between 'stream' and 'endstream' PDF keywords.
-    self.qfilter.apply(to: outPDF)
+    self.quartz_filter.apply(to: outPDF)
     
     // Copy every page to new output document
     for index in 1...inPDF.numberOfPages {

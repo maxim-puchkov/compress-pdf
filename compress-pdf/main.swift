@@ -9,18 +9,26 @@
 import Foundation
 //import Quartz
 
-
-
-
-
+import PDFCompressor
 
 let inFilePath  = "/Users/admin/01-test.pdf"
 let outFilePath = "/Users/admin/out-01.pdf"
-let compressor = PDFCompressor.init(filter: "Compress-PDF")
 
-let outURL: CFURL = compressor.compress(inFilePath, out: outFilePath)
-print("Compressed PDF document: \(outURL).")
-print("Hello, World!")
+let c = try PDFCompressor(filter: "Compress PDF")
+let c2 = try PDFCompressor(filter: PDFCompressor.kDefaultFilter)
+//let f = PDFCompressor.getFilter(filter: PDFCompressor.kDefaultFilter)
+print(c2)
+print(c.filter, c2.filter)
+
+//do {
+//  let compressor = try PDFCompressor.init(filter: "Compress-PDF")
+//  let outURL: CFURL = compressor.compress(inFilePath, out: outFilePath)
+//  print("Compressed PDF document: \(outURL).")
+//} catch {
+//  print(error)
+//}
+//
+//print("Hello, World!")
 
 
 
