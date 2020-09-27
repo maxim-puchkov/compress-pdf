@@ -71,6 +71,7 @@
 		84D4CF04251F1CA20092A7E4 /* 02-document.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "02-document.pdf"; sourceTree = "<group>"; };
 		84D4CF05251F1CA20092A7E4 /* 01-document.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "01-document.pdf"; sourceTree = "<group>"; };
 		84D4CF0F251F1FDF0092A7E4 /* PDFCompressionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCompressionError.swift; sourceTree = "<group>"; };
+		84E4AE51251FE26F00A572A8 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +134,7 @@
 		849F0984251D9F1200F4D896 = {
 			isa = PBXGroup;
 			children = (
+				84E4AE50251FE25100A572A8 /* Playgrounds */,
 				849F098F251D9F1200F4D896 /* compress-pdf */,
 				84993C8F251EB6C3003411BD /* PDFCompressor */,
 				84993C9A251EB6C3003411BD /* PDFCompressorTests */,
@@ -184,6 +186,14 @@
 				84D4CF03251F1CA10092A7E4 /* 03-document.pdf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		84E4AE50251FE25100A572A8 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				84E4AE51251FE26F00A572A8 /* MyPlayground.playground */,
+			);
+			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

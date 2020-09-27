@@ -10,18 +10,24 @@ import PDFCompressor
 import os
 
 
+let programName: String = "compress-pdf"
+
+
 /// Print to standard error.
 ///
-/// - Parameter errorDescription: text describing the error.
+/// - Parameters:
+///   - desc: text describing the error.
+///   - prefix: text printed before error description (optional).
 /// - Returns: `true` if `data` was written to standard error;
 ///            `false` otherwise.
 @discardableResult
-func printError(_ errorDescription: String) -> Bool {
-  let standardError = FileHandle.standardError
-  guard let data = errorDescription.data(using: .utf8) else {
+func printError(_ desc: String,
+                prefix: String = programName) -> Bool {
+  let errorText = "\(prefix): \(desc)\n"
+  guard let errorData = errorText.data(using: .utf8) else {
     return false
   }
-  standardError.write(data)
+  FileHandle.standardError.write(errorData)
   return true
 }
 
@@ -54,7 +60,11 @@ let outputPath = CommandLine.arguments[2]
 print(inputPath, outputPath)
 
 let pdfCompressor = PDFCompressor()
-//try pdfCompressor.compress(inputPath, out: outputPath)
+do {
+  try pdfCompressor.compress(inputPath, out: outputPath)
+} catch {
+  printError("error: \(error)")
+}
 
 exit(0)
 

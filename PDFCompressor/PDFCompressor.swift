@@ -89,6 +89,7 @@ public class PDFCompressor {
   /// - Throws: `PDFCompressionError.FileNotFoundError`
   ///            if PDF file at `inPath` is not found.
   /// - Returns: location of output document context.
+  @discardableResult
   public func compress(_ inPath: String, out outPath: String) throws -> CFURL {
     let inURL = URL(fileURLWithPath: inPath)
     let outURL = URL(fileURLWithPath: outPath)
@@ -104,6 +105,7 @@ public class PDFCompressor {
   /// - Throws: `PDFCompressionError.FileNotFoundError`
   ///            if PDF file at `inURL` is not found.
   /// - Returns: location of output document context.
+  @discardableResult
   public func compress(_ inURL: URL, out outURL: URL) throws -> CFURL {
     // Make sure input PDF file at 'inURL' is valid
     guard let inFile = PDFDocument(url: inURL) else {
@@ -132,6 +134,7 @@ public class PDFCompressor {
     
     // Close output document and return its location
     outPDF.closePDF()
+    
     return (outURL as CFURL)
   }
   
