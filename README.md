@@ -21,10 +21,10 @@ compress-pdf input.pdf output.pdf
 ## Examples
 *  Take a look at three example PDF files and the compressed PDF file generated with `compress-pdf` below.
 
-| File Name       | Original Size | Compressed Size |
-|-----------------|---------------|-----------------|
-| 01-document.pdf | 9.5 MB        | 329 KB          |
-| 02-document.pdf |               |                 |
-| 03-document.pdf |               |                 |
+| Original File                                              | Compressed File                         |
+|-----------------------------------------------|--------------------------------------|
+| 01-scanned-document.pdf (9.5 MB)       | 01-compressed.pdf (329 KB)      |
+| 02-scanned-document.pdf (12.1 MB)     | 01-compressed.pdf (429 KB)      |
+| 03-scanned-document.pdf (9.1 MB)       | 01-compressed.pdf (312 KB)      |
 
-*  Note: all example documents were scanned in the Files iPhone app. 
+>  **Note**: all documents were scanned in the Files iPhone app. 
