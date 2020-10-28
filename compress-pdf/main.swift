@@ -7,10 +7,88 @@
 //
 
 import PDFCompressor
-import os
+import ArgumentParser
 
 
-let programName: String = "compress-pdf"
+/// Generate output path in the same directory PDF files.
+/// Compressed PDF files are outputted in the same directory as input file with added suffix.
+///
+/// - Parameters:
+///   - inputPath: path of input PDF file.
+///   - suffix: output path suffix.
+/// - Returns: output path.
+func generateOutputPath(_ inputPath: String, withSuffix suffix: String) -> String {
+  let url = URL(fileURLWithPath: inputPath, isDirectory: false)
+  // Append suffix
+  var str = suffix
+  if str.isEmpty {
+    str = " copy"
+  }
+  // Append extension (if input file has one)
+  if !url.pathExtension.isEmpty {
+    str += ".\(url.pathExtension)"
+  }
+  return "\(url.deletingPathExtension().path)\(str)"
+}
+
+/// Parse command line arguments for `compress-pdf`.
+struct CompressPDF: ParsableCommand {
+  @Flag(name: .shortAndLong,
+        help: "Replace original PDF files.")
+  var replaceFiles: Bool = false
+  
+  @Option(name: .shortAndLong,
+          help: "Set file suffix added to copied PDF files.")
+  var suffix: String = " (compressed)"
+  
+  @Argument(help: "The PDF files to compress.")
+  var files: [String]
+  
+  
+  mutating func run() throws {
+    guard !files.isEmpty else {
+      CompressPDF.exit()
+    }
+    
+    let pdfCompressor = PDFCompressor()
+    try files.forEach { (inputPath: String) in
+      let outputPath: String
+      if replaceFiles {
+        outputPath = inputPath
+        print("Compressing \(inputPath)")
+      } else {
+        outputPath = generateOutputPath(inputPath, withSuffix: suffix)
+        print("Compressing \(inputPath) -> \(outputPath)")
+      }
+      
+      // Compress PDF files
+      try pdfCompressor.compress(inputPath, out: outputPath)
+    }
+  }
+}
+
+CommandLine.arguments = [ "compress-pdf", "include-counter", "text", "5.pdf", "/Users/admin/doc.pdf" ]
+//CommandLine.arguments = [ "compress-pdf", "--help" ]
+
+
+
+CompressPDF.main()
+
+exit(0)
+
+
+
+
+
+
+
+
+
+
+import os // ?
+
+
+let arg0: String = URL(fileURLWithPath: CommandLine.arguments[0], isDirectory: false).lastPathComponent
 
 
 /// Print to standard error.
@@ -22,7 +100,7 @@ let programName: String = "compress-pdf"
 ///            `false` otherwise.
 @discardableResult
 func printError(_ desc: String,
-                prefix: String = programName) -> Bool {
+                prefix: String = arg0) -> Bool {
   let errorText = "\(prefix): \(desc)\n"
   guard let errorData = errorText.data(using: .utf8) else {
     return false
@@ -30,6 +108,7 @@ func printError(_ desc: String,
   FileHandle.standardError.write(errorData)
   return true
 }
+
 
 
 /// Validate PDF file path.
@@ -48,41 +127,22 @@ func isValidPath(_ path: String) -> Bool {
 
 
 
-guard (CommandLine.argc == 3) else {
-  printError("usage: ") //TODO: Usage
-  exit(2)
-}
-
-
-
-let inputPath = CommandLine.arguments[1]
-let outputPath = CommandLine.arguments[2]
-print(inputPath, outputPath)
-
-let pdfCompressor = PDFCompressor()
-do {
-  try pdfCompressor.compress(inputPath, out: outputPath)
-} catch {
-  printError("error: \(error)")
-}
-
-exit(0)
 
 
 
 
-// Path to input and output files
-//let inFilePath  = "/Users/admin/01-test.pdf" // 9.5 MB
-//let outFilePath = "/Users/admin/out-01.pdf" // 321 KB
 
 
-// Try to compress the input file
-//do {
-//  let compressor = try PDFCompressor()!
-//  try compressor.compress(inFilePath, out: outFilePath)
-//} catch {
-//  print("Error: \(error).")
-//  exit(1)
+
+
+
+//
+//
+//  do {
+//    print("in \(inputPath), out: \(outputPath)")
+//    try pdfCompressor.compress(inputPath, out: outputPath)
+//  } catch {
+//    printError("error: \(error)")
+//  }
+
 //}
-
-

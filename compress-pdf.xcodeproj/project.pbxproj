@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8428EB6125304CF600F31C0D /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8428EB6025304CF600F31C0D /* ArgumentParser */; };
 		84993C97251EB6C3003411BD /* PDFCompressor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84993C8E251EB6C3003411BD /* PDFCompressor.framework */; };
 		84993C9C251EB6C4003411BD /* PDFCompressorCompressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993C9B251EB6C3003411BD /* PDFCompressorCompressionTests.swift */; };
 		84993C9E251EB6C4003411BD /* PDFCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 84993C90251EB6C3003411BD /* PDFCompressor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8428EB6125304CF600F31C0D /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +270,9 @@
 				84993CC7251EB86A003411BD /* PBXTargetDependency */,
 			);
 			name = "compress-pdf";
+			packageProductDependencies = (
+				8428EB6025304CF600F31C0D /* ArgumentParser */,
+			);
 			productName = "compress-pdf";
 			productReference = 849F098D251D9F1200F4D896 /* compress-pdf */;
 			productType = "com.apple.product-type.tool";
@@ -302,6 +307,9 @@
 				Base,
 			);
 			mainGroup = 849F0984251D9F1200F4D896;
+			packageReferences = (
+				8428EB5F25304CF600F31C0D /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 849F098E251D9F1200F4D896 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -655,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8428EB5F25304CF600F31C0D /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8428EB6025304CF600F31C0D /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8428EB5F25304CF600F31C0D /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 849F0985251D9F1200F4D896 /* Project object */;
 }

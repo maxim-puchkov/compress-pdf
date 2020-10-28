@@ -10,5 +10,5 @@
 //
 public enum PDFCompressionError: Error {
   case QuartzFilterNotFoundError(filterName: String);
-  case FileNotFoundError(fileURL: URL)
+  case PDFFileNotFoundError(fileURL: URL)
 }

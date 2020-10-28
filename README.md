@@ -9,7 +9,7 @@ To install the `compress-pdf`
 
 ## Usage
 *  `compress-pdf` is particullarly effective for documents that were scanned with iPhone.  
-*  Move a scanned PDF document to your computer and run this command in your Terminal: 
+*  Move a scanned PDF document to your computer and run this command in your Terminal:  
 ```shell
 compress-pdf input.pdf output.pdf 
 ```
