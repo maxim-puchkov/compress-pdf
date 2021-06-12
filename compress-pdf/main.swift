@@ -31,7 +31,8 @@ func generateOutputPath(_ inputPath: String, withSuffix suffix: String) -> Strin
   return "\(url.deletingPathExtension().path)\(str)"
 }
 
-/// Parse command line arguments for `compress-pdf`.
+
+/// CLI command `compress-pdf` with flags and options.
 struct CompressPDF: ParsableCommand {
   @Flag(name: .shortAndLong,
         help: "Replace original PDF files.")
@@ -44,12 +45,10 @@ struct CompressPDF: ParsableCommand {
   @Argument(help: "The PDF files to compress.")
   var files: [String]
   
-  
   mutating func run() throws {
     guard !files.isEmpty else {
       CompressPDF.exit()
     }
-    
     let pdfCompressor = PDFCompressor()
     try files.forEach { (inputPath: String) in
       let outputPath: String
@@ -60,20 +59,17 @@ struct CompressPDF: ParsableCommand {
         outputPath = generateOutputPath(inputPath, withSuffix: suffix)
         print("Compressing \(inputPath) -> \(outputPath)")
       }
-      
       // Compress PDF files
       try pdfCompressor.compress(inputPath, out: outputPath)
     }
   }
 }
 
-CommandLine.arguments = [ "compress-pdf", "include-counter", "text", "5.pdf", "/Users/admin/doc.pdf" ]
-//CommandLine.arguments = [ "compress-pdf", "--help" ]
+//CommandLine.arguments = [ "compress-pdf", "include-counter", "text", "5.pdf", "/Users/admin/doc.pdf" ]
 
-
+CommandLine.arguments = [ "compress-pdf", "--help" ]
 
 CompressPDF.main()
-
 exit(0)
 
 
@@ -85,29 +81,40 @@ exit(0)
 
 
 
-import os // ?
 
 
-let arg0: String = URL(fileURLWithPath: CommandLine.arguments[0], isDirectory: false).lastPathComponent
+
+
+
+
+
+
+
+
+//import os // ?
+
+
+// Argument 0 is the name of the executable program.
+//let arg0: String = URL(fileURLWithPath: CommandLine.arguments[0], isDirectory: false).lastPathComponent
 
 
 /// Print to standard error.
 ///
 /// - Parameters:
 ///   - desc: text describing the error.
-///   - prefix: text printed before error description (optional).
+///   - prefix: text printed before error description (optional, defaults to name of the program).
 /// - Returns: `true` if `data` was written to standard error;
 ///            `false` otherwise.
-@discardableResult
-func printError(_ desc: String,
-                prefix: String = arg0) -> Bool {
-  let errorText = "\(prefix): \(desc)\n"
-  guard let errorData = errorText.data(using: .utf8) else {
-    return false
-  }
-  FileHandle.standardError.write(errorData)
-  return true
-}
+//@discardableResult
+//func printError(_ desc: String,
+//                prefix: String = arg0) -> Bool {
+//  let errorText = "\(prefix): \(desc)\n"
+//  guard let errorData = errorText.data(using: .utf8) else {
+//    return false
+//  }
+//  FileHandle.standardError.write(errorData)
+//  return true
+//}
 
 
 
@@ -116,13 +123,13 @@ func printError(_ desc: String,
 /// - Parameter path: path of file.
 /// - Returns: `true` if `path` refers to the location of a PDF document;
 ///            `false` otherwise.
-func isValidPath(_ path: String) -> Bool {
-  let url = URL(fileURLWithPath: path)
-  guard let _ = PDFDocument(url: url) else {
-    return false
-  }
-  return true
-}
+//func isValidPath(_ path: String) -> Bool {
+//  let url = URL(fileURLWithPath: path)
+//  guard let _ = PDFDocument(url: url) else {
+//    return false
+//  }
+//  return true
+//}
 
 
 

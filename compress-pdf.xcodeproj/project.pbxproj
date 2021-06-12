@@ -20,7 +20,7 @@
 		84D4CF07251F1CA20092A7E4 /* 02-document.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84D4CF04251F1CA20092A7E4 /* 02-document.pdf */; };
 		84D4CF08251F1CA20092A7E4 /* 01-document.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84D4CF05251F1CA20092A7E4 /* 01-document.pdf */; };
 		84D4CF10251F1FDF0092A7E4 /* PDFCompressionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4CF0F251F1FDF0092A7E4 /* PDFCompressionError.swift */; };
-		84E4AE40251FD91C00A572A8 /* PDFCompressor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84993C8E251EB6C3003411BD /* PDFCompressor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F3A27DD0266B298000EAA2F6 /* PDFCompressor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84993C8E251EB6C3003411BD /* PDFCompressor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84E4AE40251FD91C00A572A8 /* PDFCompressor.framework in Embed Frameworks */,
+				F3A27DD0266B298000EAA2F6 /* PDFCompressor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +284,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = com.maximpuchkov;
 				TargetAttributes = {
 					84993C8D251EB6C3003411BD = {
@@ -389,6 +389,7 @@
 		84993CA0251EB6C4003411BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -417,6 +418,7 @@
 		84993CA1251EB6C4003411BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -483,6 +485,7 @@
 		849F0992251D9F1200F4D896 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -531,6 +534,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -544,6 +551,7 @@
 		849F0993251D9F1200F4D896 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -586,6 +594,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -598,7 +610,9 @@
 		849F0995251D9F1200F4D896 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = "compress-pdf/compress-pdf.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U55Q33J358;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -612,7 +626,9 @@
 		849F0996251D9F1200F4D896 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = "compress-pdf/compress-pdf.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U55Q33J358;
 				ENABLE_HARDENED_RUNTIME = YES;
