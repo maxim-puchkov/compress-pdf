@@ -18,20 +18,13 @@ public class PDFCompressor {
   /// File name of the default filter (currently the only filter).
   public static let kDefaultFilterName: String = "Compress PDF"
 
-  /// Framework bundle.
-  public static var bundle: Bundle {
-    get { return Bundle(for: self) }
-  }
-
   /// Search framework resources for quartz filter specified by its name.
   ///
   /// - Parameter filterName: name of a bundled quartz filter.
   public static func getFilterURL(name filterName: String) -> URL? {
     let ext = "qfilter"
-    let dir = "Resources"
-    return self.bundle.url(forResource: filterName,
-                           withExtension: ext,
-                           subdirectory: dir)
+    return Bundle.module.url(forResource: filterName,
+                             withExtension: ext)
   }
 
 

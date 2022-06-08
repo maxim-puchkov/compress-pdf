@@ -23,7 +23,10 @@ let package = Package(
             ]),
         .target(
             name: "PDFCompressor",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .process("Resources")
+            ]),
         .testTarget(
             name: "PDFCompressorTests",
             dependencies: ["PDFCompressor"]),
