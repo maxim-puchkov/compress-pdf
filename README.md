@@ -10,7 +10,7 @@ You can quickly run the project with the following command:
 swift run compress-pdf [--replace-files] [--suffix <suffix>] [<files> ...]
 ```
 
-You can build the for release project like so:
+You can build compress-pdf for release like so:
 ```
 swift build --configuration release
 ```
