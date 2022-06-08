@@ -14,8 +14,7 @@ import XCTest
 class PDFCompressorCompressionTests: XCTestCase {
     
     let compressor: PDFCompressor = PDFCompressor()
-    let bundle: Bundle = Bundle(for: PDFCompressorCompressionTests.self)
-    
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -30,7 +29,7 @@ class PDFCompressorCompressionTests: XCTestCase {
     func testPDFCompression() throws {
         // Find Test resource by name
         let resource = "01-document"
-        guard let inURL = self.bundle.url(forResource: resource,
+        guard let inURL = Bundle.module.url(forResource: resource,
                                           withExtension: "pdf") else {
             XCTFail("Test resource not found: \(resource).")
             return
