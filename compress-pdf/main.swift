@@ -67,7 +67,7 @@ struct CompressPDF: ParsableCommand {
 
 //CommandLine.arguments = [ "compress-pdf", "include-counter", "text", "5.pdf", "/Users/admin/doc.pdf" ]
 
-CommandLine.arguments = [ "compress-pdf", "--help" ]
+//CommandLine.arguments = [ "compress-pdf", "--help" ]
 
 CompressPDF.main()
 exit(0)
