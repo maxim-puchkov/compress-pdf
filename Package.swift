@@ -18,6 +18,7 @@ let package = Package(
         .executableTarget(
             name: "compress-pdf",
             dependencies: [
+                "PDFCompressor",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]),
         .target(

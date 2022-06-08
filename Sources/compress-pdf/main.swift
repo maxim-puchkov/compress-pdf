@@ -8,6 +8,7 @@
 
 import PDFCompressor
 import ArgumentParser
+import Foundation
 
 
 /// Generate output path in the same directory PDF files.
