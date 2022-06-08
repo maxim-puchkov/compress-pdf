@@ -7,7 +7,8 @@
 //
 
 
-//
+import Foundation
+
 public enum PDFCompressionError: Error {
   case QuartzFilterNotFoundError(filterName: String);
   case PDFFileNotFoundError(fileURL: URL)
