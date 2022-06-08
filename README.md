@@ -3,20 +3,34 @@ Significantly reduce the file size of scanned PDF documents without noticeable l
 
 
 ## Install 
-To install the `compress-pdf`   
-`...`
+To install the `compress-pdf`
+
+You can quickly run the project with the following command:
+```
+swift run compress-pdf [--replace-files] [--suffix <suffix>] [<files> ...]
+```
+
+You can build the for release project like so:
+```
+swift build --configuration release
+```
 
 
 ## Usage
 *  `compress-pdf` is particullarly effective for documents that were scanned with iPhone.  
 *  Move a scanned PDF document to your computer and run this command in your Terminal:  
 ```shell
-compress-pdf input.pdf output.pdf 
+compress-pdf [--replace-files] [--suffix <suffix>] [<files> ...]
+
+ARGUMENTS:
+  <files>                 The PDF files to compress.
+
+OPTIONS:
+  -r, --replace-files     Replace original PDF files.
+  -s, --suffix <suffix>   Set file suffix added to copied PDF files. (default:  (compressed))
+  -h, --help              Show help information.
 ```
-*  This command compresses a copy of the original `input.pdf` and saves it in the file named `compressed.pdf`. 
-
-
-*  For example, `...` 
+*  This command compresses a copy of the original `input.pdf` and saves it in the file named `input (compressed).pdf`. 
 
 
 ## Examples
